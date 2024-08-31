@@ -70,6 +70,16 @@ dataset = CustomOrientationDataset(train_data, transform=transform)
 dataloader = DataLoader(dataset, batch_size=32, shuffle=True, num_workers=4)
 
 model = models.resnet18(pretrained=True)
-model.fc = nn.Linear(
-    model.fc.in_features, len(label_map)
-)  # Adjust final layer to number of classes
+model.fc = nn.Linear(model.fc.in_features, len(label_map))
+
+
+model.eval()
+
+for inputs, labels in dataloader:
+    # inputs, labels = inputs.to(device), labels.to(device)
+
+    outputs = model(inputs)
+
+    _, preds = torch.max(outputs, 1)
+
+    print(f"Predicted: {preds}, Actual: {labels}")
