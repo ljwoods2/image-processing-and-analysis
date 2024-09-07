@@ -11,6 +11,7 @@ To allocate a GPU node (switches are the same switches for `salloc`):
 vscode -c 4 -N 1 --gres=gpu:a100:4 -t 1-00:00:00 -p general > output.log 2>&1
 bg
 disown
+tail -f output.log
 ```
 
 
