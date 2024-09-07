@@ -13,8 +13,19 @@ bg
 disown
 ```
 
+
+
 3. Login using the link in the browser
 
 4. In VSCode locally, press `F1` and type: `Remote-Tunnels: Connect to Tunnel` and select "github"
+
+
+Misc
+
+Get GPU IDs to pass to pytorch
+
+```bash
+nvidia-smi
+```
 
 You're done!
