@@ -8,7 +8,9 @@
 To allocate a GPU node (switches are the same switches for `salloc`):
 
 ```bash
-vscode -c 4 -N 1 --gres=gpu:a100:1 -t 1-00:00:00 -p general
+vscode -c 4 -N 1 --gres=gpu:a100:4 -t 1-00:00:00 -p general > output.log 2>&1
+bg
+disown
 ```
 
 3. Login using the link in the browser
